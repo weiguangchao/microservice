@@ -1,0 +1,31 @@
+spring:
+  # 微服务的名称
+  application:
+    name: microservice-zuul-gateway-9527   
+server:
+  port: 9527
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka3000.com:3000/eureka,http://eureka3001.com:3001/eureka,http://eureka3002.com:3002/eureka
+  # 该实例在eureka中的唯一标识
+  instance:
+    instance-id: microservice-zuul-gateway9527
+    prefer-ip-address: true
+info:
+  app.name: ririiy-microservice
+  company.name: www.ririiy.com
+  build.artifactId: $project.artifactId$
+  build.version: $project.version$
+zuul:
+  # 设置忽略的服务，这里忽略所有的服务
+  ignored-services: "*"
+  # 服务前缀
+  prefix: /o2o
+  # 自定义路由规则
+  routes:
+    mydept:
+      # 微服务名称
+      service-id: microservice-dept
+      # 映射路径
+      path: /mydept/**

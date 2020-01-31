@@ -1,0 +1,12 @@
+server:
+  port: 3002
+eureka:
+  instance:
+    hostname: eureka3002.com
+  client:
+    # 在其他eureka中注册(在单台eureka中无需进行配置)
+    register-with-eureka: false
+    # 拉去注册信息(在单台eureka中无需进行配置)
+    fetch-registry: false
+    service-url:
+      defaultZone: http://eureka3000.com:3000/eureka,http://eureka3001.com:3001/eureka
